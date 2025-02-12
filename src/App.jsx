@@ -4,7 +4,9 @@
 
 import { Routes, Route, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import Players from "../Players"
+import Players from "./Players"
+import SinglePlayer from "./SinglePlayer"
+
 
 
 const App = () => {
@@ -28,15 +30,17 @@ const App = () => {
       <Routes>
         <Route path="/" element={<h1>HomePage</h1>} />
         <Route path="Players" element={<Players />} />
+        <Route path="SinglePlayer" element={<SinglePlayer/>}/>
       </Routes>
 
       <Link to="/">HomePage</Link>
       <Link to="Players">Players</Link>
+      <Link to="SinglePlayer" >SinglePlayer </Link>
 
     </>
     //onClick 
     //onSubmit for back buttons 
-    //onChange for puppies added
+    //onChange for puppies added 
 
   )
 }

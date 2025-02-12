@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { Link, useHref } from "react-router-dom";
 
 
 
 const Players = () => {
-  const [players, singlePlayers] = useState([])
+  const [players, setPlayers] = useState([])
   
     useEffect(() => {
       const getPuppies = async () => {
@@ -13,7 +14,7 @@ const Players = () => {
         console.log(allPuppies);
         const pups = allPuppies.data.players
         console.log(pups)
-
+        setPlayers(pups)
       }
       getPuppies();
     }, [])
@@ -27,12 +28,16 @@ const Players = () => {
 
 
 
-        {Players.legnth > 0 ?
-          Players.map((player) => (
+        {players &&(
 
-            <li key={player.id}>{player.name}</li>
+          players.map((player) => (
+            <div>
+            <li key={player.id}>{player.name}</li> 
+            <button onClick={()=>window.location.href=`/SinglePlayer/${player.id}`}>Click me for Deets</button>
+            </div>
+          )
         )
-        ):[]
+      )
       }
       </ol>
     </>
