@@ -30,7 +30,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<h1>HomePage</h1>} />
         <Route path="Players" element={<Players />} />
-        <Route path="SinglePlayer" element={<SinglePlayer/>}/>
+        {/* <Route path="SinglePlayer" element={<SinglePlayer/>}/> */}
+        <Route path="SinglePlayer/:id" element={<SinglePlayer />} />
       </Routes>
 
       <Link to="/">HomePage</Link>
